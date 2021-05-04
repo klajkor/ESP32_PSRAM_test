@@ -1,7 +1,14 @@
 #include <Arduino.h>
 #include <ESP.h>
 
+#define GPIO_LED1 2
+#define GPIO_LED2 5
+
 void setup() {
+  pinMode(GPIO_LED1, OUTPUT);
+  pinMode(GPIO_LED2, OUTPUT);
+  digitalWrite(GPIO_LED1, HIGH);
+  digitalWrite(GPIO_LED2, HIGH);
   log_d("Total heap: %d", ESP.getHeapSize());
   log_d("Free heap: %d", ESP.getFreeHeap());
   log_d("Total PSRAM: %d", ESP.getPsramSize());
@@ -23,4 +30,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  digitalWrite(GPIO_LED1, HIGH);
+  digitalWrite(GPIO_LED2, HIGH);
+  delay(250);
+  digitalWrite(GPIO_LED1, LOW);
+  delay(250);
+  digitalWrite(GPIO_LED1, HIGH);
+  digitalWrite(GPIO_LED2, LOW);
+  delay(250);
+  digitalWrite(GPIO_LED1, LOW);
+  delay(250);
 }
