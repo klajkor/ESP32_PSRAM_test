@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <ESP.h>
+//#include <ESP.h>
 #include <Wire.h>
 
 #define GPIO_LED1 2
@@ -36,7 +36,6 @@ void setup(void)
     log_d("ESP32 Chip model: %s Rev %d", ESP.getChipModel(), ESP.getChipRevision());
     log_d("ESP32 Chip ID: %04X%08X\n", (uint16_t)(chipid >> 32), (uint32_t)chipid);
     log_d("%dMB %s flash", spi_flash_get_chip_size() / (1024 * 1024), (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embeded" : "external");
-    Wire.begin(GPIO_SDA, GPIO_SCL);
     i2c_scanner();
 }
 
